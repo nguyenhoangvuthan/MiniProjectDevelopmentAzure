@@ -143,7 +143,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://github.com/nguyenhoangvuthan/MiniProjectDevelopmentAzure",
+					"method": "GET"
+				}
 			},
 			{
 				"name": "Web2",
@@ -163,7 +167,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://www.google.com/search?q=404&sa=X&hl=en&sxsrf=APq-WBsRsCk2MGyxuZ6V7qbzUZq1uw09BA:1646383949835&tbm=isch&source=iu&ictx=1&vet=1&fir=14tHSULUotFxxM%252CA8w6yDE4XLpVhM%252C_%253BwvS2k3alXpldWM%252CjRplNKuAuqH4DM%252C_%253BPH6CWf0rrnvsdM%252Cc1TKyHhglapVVM%252C_%253BoW9RNtOFmK66cM%252CjRplNKuAuqH4DM%252C_%253BJPQQpJwKABGpSM%252CGd9HXyE6pyPZmM%252C_%253BUP93TQFHMXEWhM%252CNcjoa7J763CFqM%252C_%253BJQDPf07Li2Eu1M%252CgrWb3R2wvjO76M%252C_&usg=AI4_-kT94Y3DjmWDex4L1kcF-GsdHIULLw&ved=2ahUKEwiqn_mTiqz2AhXorlYBHeIOApAQ_h16BAgcEAE#imgrc=PH6CWf0rrnvsdM",
+					"method": "GET"
+				}
 			}
 		],
 		"annotations": []
