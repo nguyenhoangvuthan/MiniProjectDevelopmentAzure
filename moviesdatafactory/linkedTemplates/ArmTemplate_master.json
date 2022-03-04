@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "moviesdatafactory"
+		},
+		"ADLS_CuratedLayer_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_CuratedLayer'"
+		},
+		"Blob_IngestLayer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Blob_IngestLayer'"
+		},
+		"MyAzureDataLakeStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'MyAzureDataLakeStorage'"
+		},
+		"MyBlob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'MyBlob'"
+		},
+		"ADLS_CuratedLayer_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviescurated2022.dfs.core.windows.net"
+		},
+		"MyAzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://moviescurated2022.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "moviesdatafactory_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_CuratedLayer_accountKey": {
+						"value": "[parameters('ADLS_CuratedLayer_accountKey')]"
+					},
+					"Blob_IngestLayer_connectionString": {
+						"value": "[parameters('Blob_IngestLayer_connectionString')]"
+					},
+					"MyAzureDataLakeStorage_accountKey": {
+						"value": "[parameters('MyAzureDataLakeStorage_accountKey')]"
+					},
+					"MyBlob_connectionString": {
+						"value": "[parameters('MyBlob_connectionString')]"
+					},
+					"ADLS_CuratedLayer_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_CuratedLayer_properties_typeProperties_url')]"
+					},
+					"MyAzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('MyAzureDataLakeStorage_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
